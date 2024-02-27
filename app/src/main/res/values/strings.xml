@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FootBallManager</string>
+
+    <string name="nav_news">뉴스</string>
+    <string name="nav_schedule">일정</string>
+    <string name="nav_ranking">순위</string>
 </resources>

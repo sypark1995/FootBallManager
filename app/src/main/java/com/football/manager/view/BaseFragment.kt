@@ -31,34 +31,34 @@ abstract class BaseFragment<T : ViewDataBinding>(@LayoutRes val layoutResId: Int
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = viewLifecycleOwner
-//        view.findViewById<BottomNavigationView>(R.id.navigationBottom)?.run {
+        view.findViewById<BottomNavigationView>(R.id.nav_bottom)?.run {
+            if (initNavButtonId() != null) {
+                this.selectedItemId = initNavButtonId()!!
+            }
 
-//            if (null != initNavButtonId()) {
-//                this.selectedItemId = initNavButtonId()!!
-//            }
+            setOnItemSelectedListener {
+                val fragmentId = when (it.itemId) {
+                    R.id.menu_news -> {
+                        R.id.mainFragment
+                    }
 
-//            setOnItemSelectedListener {
-//                val fragmentId = when (it.itemId) {
-//                    R.id.menu_home -> {
-//                        R.id.mainFragment
-//                    }
-//                    R.id.menu_category -> {
-//                        R.id.categoryFragment
-//                    }
-//                    R.id.menu_my -> {
-//                        R.id.mainFragment
-//                    }
-//                    else -> {
-//                        return@setOnItemSelectedListener false
-//                    }
-//                }
-//
-//                findNavController().navigate(fragmentId)
-//                return@setOnItemSelectedListener true
-//            }
+                    R.id.menu_ranking -> {
+                        R.id.mainFragment
+                    }
 
+                    R.id.menu_schedule -> {
+                        R.id.mainFragment
+                    }
 
-//        }
+                    else -> {
+                        return@setOnItemSelectedListener false
+                    }
+                }
+
+                findNavController().navigate(fragmentId)
+                return@setOnItemSelectedListener true
+            }
+        }
 
         onBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -66,7 +66,11 @@ abstract class BaseFragment<T : ViewDataBinding>(@LayoutRes val layoutResId: Int
                 backPressed()
             }
         }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            onBackPressedCallback
+        )
 
         init(view)
     }

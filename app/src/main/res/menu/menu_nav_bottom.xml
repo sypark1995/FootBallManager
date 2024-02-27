@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_news"
+        android:enabled="true"
+        android:icon="@drawable/news_24px"
+        android:title="@string/nav_news" />
+
+    <item
+        android:id="@+id/menu_schedule"
+        android:enabled="true"
+        android:icon="@drawable/calendar_month_24px"
+        android:title="@string/nav_schedule" />
+
+    <item
+        android:id="@+id/menu_ranking"
+        android:enabled="true"
+        android:icon="@drawable/sports_score_24px"
+        android:title="@string/nav_ranking" />
+</menu>
