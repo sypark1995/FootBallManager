@@ -32,6 +32,11 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
     kotlinOptions {
         jvmTarget = "17"
     }
@@ -42,4 +47,8 @@ dependencies {
     implementation(Libraries.androidx_appcompat)
     implementation(Libraries.material)
     implementation(Libraries.timber)
+
+    implementation(Libraries.navigation_ktx)
+    implementation(Libraries.navigation_ui_ktx)
+    implementation(Libraries.navigation_dynamic_feature)
 }

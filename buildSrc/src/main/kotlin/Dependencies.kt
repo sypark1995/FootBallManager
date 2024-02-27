@@ -23,6 +23,7 @@ object Versions {
     const val firebaseMessaging = "23.2.1"
     const val firebaseAnalytics = "21.3.0"
     const val jackson = "2.9.7"
+    const val nav = "2.7.7"
 }
 
 object Libraries {
@@ -30,7 +31,8 @@ object Libraries {
     const val ksp = "com.google.devtools.ksp:symbol-processing-api:${Versions.ksp}"
     const val kotlin_gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     const val kotlin_serialization = "org.jetbrains.kotlin:kotlin-serialization:${Versions.kotlin}"
-    const val navigation_safeargsPlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.androidxNavigation}"
+    const val navigation_safeargsPlugin =
+        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.androidxNavigation}"
     const val hilt_plugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
     const val material = "com.google.android.material:material:${Versions.material}"
     const val gson = "com.google.code.gson"
@@ -46,6 +48,14 @@ object Libraries {
 
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
     const val firebase_bom = "com.google.firebase:firebase-bom:${Versions.firebaseBom}"
-    const val firebase_messaging = "com.google.firebase:firebase-messaging:${Versions.firebaseMessaging}"
-    const val firebase_analytics = "com.google.firebase:firebase-analytics-ktx:${Versions.firebaseAnalytics}"
+    const val firebase_messaging =
+        "com.google.firebase:firebase-messaging:${Versions.firebaseMessaging}"
+    const val firebase_analytics =
+        "com.google.firebase:firebase-analytics-ktx:${Versions.firebaseAnalytics}"
+
+    const val navigation_ktx = "androidx.navigation:navigation-fragment-ktx:${Versions.nav}"
+    const val navigation_ui_ktx = "androidx.navigation:navigation-ui-ktx:${Versions.nav}"
+    const val navigation_dynamic_feature =
+        "androidx.navigation:navigation-dynamic-features-fragment:${Versions.nav}"
+
 }
