@@ -17,7 +17,7 @@ abstract class BaseFragment<T : ViewDataBinding>(@LayoutRes val layoutResId: Int
 
     private var _binding: T? = null
     protected val binding get() = _binding!!
-    private lateinit var onBackPressedCallback: OnBackPressedCallback
+//    private lateinit var onBackPressedCallback: OnBackPressedCallback
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,11 +30,13 @@ abstract class BaseFragment<T : ViewDataBinding>(@LayoutRes val layoutResId: Int
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.lifecycleOwner = viewLifecycleOwner
+
         view.findViewById<BottomNavigationView>(R.id.nav_bottom)?.run {
-            if (initNavButtonId() != null) {
-                this.selectedItemId = initNavButtonId()!!
-            }
+//            if (initNavButtonId() != null) {
+//                this.selectedItemId = initNavButtonId()!!
+//            }
 
             setOnItemSelectedListener {
                 val fragmentId = when (it.itemId) {
@@ -42,11 +44,12 @@ abstract class BaseFragment<T : ViewDataBinding>(@LayoutRes val layoutResId: Int
                         R.id.mainFragment
                     }
 
-                    R.id.menu_ranking -> {
-                        R.id.mainFragment
-                    }
 
                     R.id.menu_schedule -> {
+                        R.id.scheduleFragment
+                    }
+
+                    R.id.menu_ranking -> {
                         R.id.mainFragment
                     }
 
@@ -60,17 +63,17 @@ abstract class BaseFragment<T : ViewDataBinding>(@LayoutRes val layoutResId: Int
             }
         }
 
-        onBackPressedCallback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                // Let the derived fragment handle the back button press
-                backPressed()
-            }
-        }
-
-        requireActivity().onBackPressedDispatcher.addCallback(
-            viewLifecycleOwner,
-            onBackPressedCallback
-        )
+//        onBackPressedCallback = object : OnBackPressedCallback(true) {
+//            override fun handleOnBackPressed() {
+//                // Let the derived fragment handle the back button press
+//                backPressed()
+//            }
+//        }
+//
+//        requireActivity().onBackPressedDispatcher.addCallback(
+//            viewLifecycleOwner,
+//            onBackPressedCallback
+//        )
 
         init(view)
     }
@@ -81,7 +84,7 @@ abstract class BaseFragment<T : ViewDataBinding>(@LayoutRes val layoutResId: Int
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        onBackPressedCallback.remove()
+//        onBackPressedCallback.remove()
     }
 
     protected open fun initNavButtonId(): Int? = null

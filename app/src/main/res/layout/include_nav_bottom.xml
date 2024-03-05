@@ -10,6 +10,8 @@
             android:id="@+id/nav_bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:itemIconTint="@color/selector_navigation_color"
+            app:itemTextColor="@color/selector_navigation_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/menu_nav_bottom" />

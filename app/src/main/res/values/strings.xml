@@ -4,4 +4,10 @@
     <string name="nav_news">뉴스</string>
     <string name="nav_schedule">일정</string>
     <string name="nav_ranking">순위</string>
+
+    <string name="league_epl">프리미어 리그</string>
+    <string name="league_laliga">라리가</string>
+    <string name="league_bundesliga">분데스리가</string>
+    <string name="league_ligue1">리그 1</string>
+    <string name="league_serie_a">세리에 A</string>
 </resources>

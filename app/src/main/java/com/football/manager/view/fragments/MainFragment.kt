@@ -8,7 +8,9 @@ import com.football.manager.view.BaseFragment
 class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
 
     override fun init(view: View) {
-
+        binding.apply {
+            layoutBottom.navBottom.menu.getItem(0).isChecked = true
+        }
     }
 
     override fun backPressed() {
