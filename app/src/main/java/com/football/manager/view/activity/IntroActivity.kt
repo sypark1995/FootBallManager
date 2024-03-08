@@ -3,7 +3,7 @@ package com.football.manager.view.activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
-import com.football.manager.view.BaseActivity
+import com.football.manager.view.base.BaseActivity
 import com.football.manager.R
 import com.football.manager.databinding.ActivityIntroBinding
 import kotlinx.coroutines.delay

@@ -31,9 +31,9 @@
                 tools:listitem="@layout/item_league" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <include
-            android:id="@+id/layout_bottom"
-            layout="@layout/include_nav_bottom" />
+<!--        <include-->
+<!--            android:id="@+id/layout_bottom"-->
+<!--            layout="@layout/include_nav_bottom" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 
