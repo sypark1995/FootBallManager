@@ -1,11 +1,14 @@
 package com.football.manager.view.activity
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.football.manager.view.BaseActivity
+import com.football.manager.view.base.BaseActivity
 import com.football.manager.R
 import com.football.manager.databinding.ActivityMainBinding
+import com.football.manager.view.fragments.MainFragment
+import com.football.manager.view.fragments.ScheduleFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
@@ -23,6 +26,39 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         navGraph.setStartDestination(R.id.mainFragment)
 
         navController.graph = navGraph
+        binding.apply {
+            if (savedInstanceState == null) {
+                replaceFragment(MainFragment())
+            }
+        }
 
+        binding.layoutBottom.navBottom.run {
+            setOnItemSelectedListener {
+                when (it.itemId) {
+                    R.id.menu_news -> {
+                        replaceFragment(MainFragment())
+                    }
+
+                    R.id.menu_schedule -> {
+                        replaceFragment(ScheduleFragment())
+                    }
+
+                    R.id.menu_ranking -> {
+                        replaceFragment(MainFragment())
+                    }
+
+                    else -> {
+                        return@setOnItemSelectedListener false
+                    }
+                }
+
+                return@setOnItemSelectedListener true
+            }
+        }
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.nav_host_main_fragment, fragment)
+            .commit()
     }
 }
