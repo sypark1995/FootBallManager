@@ -1,14 +1,18 @@
 package com.football.manager.view.activity
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import coil.load
 import com.football.manager.view.base.BaseActivity
 import com.football.manager.R
 import com.football.manager.databinding.ActivityMainBinding
 import com.football.manager.view.fragments.MainFragment
 import com.football.manager.view.fragments.ScheduleFragment
+import com.football.manager.view.fragments.Viewpager2Adapter
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
@@ -32,29 +36,29 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             }
         }
 
-        binding.layoutBottom.navBottom.run {
-            setOnItemSelectedListener {
-                when (it.itemId) {
-                    R.id.menu_news -> {
-                        replaceFragment(MainFragment())
-                    }
-
-                    R.id.menu_schedule -> {
-                        replaceFragment(ScheduleFragment())
-                    }
-
-                    R.id.menu_ranking -> {
-                        replaceFragment(MainFragment())
-                    }
-
-                    else -> {
-                        return@setOnItemSelectedListener false
-                    }
-                }
-
-                return@setOnItemSelectedListener true
-            }
-        }
+//        binding.layoutBottom.navBottom.run {
+//            setOnItemSelectedListener {
+//                when (it.itemId) {
+//                    R.id.menu_news -> {
+//                        replaceFragment(MainFragment())
+//                    }
+//
+//                    R.id.menu_schedule -> {
+//                        replaceFragment(ScheduleFragment())
+//                    }
+//
+//                    R.id.menu_ranking -> {
+//                        replaceFragment(MainFragment())
+//                    }
+//
+//                    else -> {
+//                        return@setOnItemSelectedListener false
+//                    }
+//                }
+//
+//                return@setOnItemSelectedListener true
+//            }
+//        }
     }
 
     private fun replaceFragment(fragment: Fragment) {

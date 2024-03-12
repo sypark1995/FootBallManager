@@ -5,30 +5,34 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.football.manager.R
+import com.football.manager.databinding.ItemLeagueBinding
 import com.football.manager.view.util.League
 import timber.log.Timber
 
 class LeagueAdapter(private val onItemClickListener: (Int) -> Unit) :
     ListAdapter<League, ViewHolder>(LeagueDiffUtil) {
 
-    private var selectedPosition: Int = RecyclerView.NO_POSITION
+    private var selectedPosition: Int = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_league, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(
+            ItemLeagueBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = getItem(position)
         Timber.e("selectedPosition $selectedPosition")
-        holder.bind(item, position == selectedPosition, onItemClickListener)
-
-        holder.itemView.isActivated = item.isSelected
+        holder.bind(currentList[position], position == selectedPosition, onItemClickListener)
     }
 }
 
@@ -48,35 +52,21 @@ object LeagueDiffUtil : DiffUtil.ItemCallback<League>() {
     }
 }
 
-class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class ViewHolder(val binding: ItemLeagueBinding) : RecyclerView.ViewHolder(binding.root) {
     @SuppressLint("ResourceAsColor")
     fun bind(
         item: League,
         isSelected: Boolean,
         onItemClickListener: (Int) -> Unit
     ) {
-        itemView.apply {
-            val title = findViewById<TextView>(R.id.text_league)
-            title.text = resources.getText(item.res)
+        binding.apply {
+            textLeague.text = root.resources.getText(item.res)
 
-            setOnClickListener {
+            root.setOnClickListener {
+                !item.isSelected
+                Timber.e("layoutPosition $layoutPosition")
+
                 onItemClickListener(item.state)
-            }
-
-            if (layoutPosition == 0) {
-                this.isSelected = true
-            } else {
-                this.isSelected = false
-            }
-
-            this.isSelected = isSelected
-
-            if (this.isSelected) {
-                Timber.e("layoutPosition true")
-                title.setBackgroundColor(R.color.black)
-            } else {
-                Timber.e("layoutPosition true")
-                title.setBackgroundColor(R.color.white)
             }
         }
     }

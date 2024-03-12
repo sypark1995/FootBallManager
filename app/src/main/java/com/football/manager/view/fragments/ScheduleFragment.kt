@@ -1,6 +1,7 @@
 package com.football.manager.view.fragments
 
 import android.view.View
+import android.widget.ArrayAdapter
 import com.football.manager.R
 import com.football.manager.databinding.FragmentScheduleBinding
 import com.football.manager.view.base.BaseFragment
@@ -15,16 +16,15 @@ class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(R.layout.fragment
     override fun init(view: View) {
         binding.apply {
 //            layoutBottom.navBottom.menu.getItem(1).isChecked = true
-
-            recyclerviewLeague.apply {
-                adapterLeague = LeagueAdapter {
-                    Timber.e("result $it")
-                }
-
-                adapter = adapterLeague
-                adapterLeague.submitList(League.entries)
-
-            }
+//            recyclerviewLeague.apply {
+//                adapterLeague = LeagueAdapter {
+//                    Timber.e("result $it")
+//                }
+//
+//                adapter = adapterLeague
+//                adapterLeague.submitList(League.entries)
+//
+//            }
         }
     }
 

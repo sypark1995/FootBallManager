@@ -51,4 +51,5 @@ dependencies {
     implementation(Libraries.navigation_ktx)
     implementation(Libraries.navigation_ui_ktx)
     implementation(Libraries.navigation_dynamic_feature)
+    implementation(Libraries.coil)
 }

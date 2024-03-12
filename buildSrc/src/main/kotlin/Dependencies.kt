@@ -24,6 +24,7 @@ object Versions {
     const val firebaseAnalytics = "21.3.0"
     const val jackson = "2.9.7"
     const val nav = "2.7.7"
+    const val coil = "2.2.2"
 }
 
 object Libraries {
@@ -57,5 +58,7 @@ object Libraries {
     const val navigation_ui_ktx = "androidx.navigation:navigation-ui-ktx:${Versions.nav}"
     const val navigation_dynamic_feature =
         "androidx.navigation:navigation-dynamic-features-fragment:${Versions.nav}"
+
+    const val coil = "io.coil-kt:coil:${Versions.coil}"
 
 }
