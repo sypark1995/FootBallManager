@@ -11,21 +11,21 @@ class Viewpager2Adapter(fragment : Fragment) :
     private val ARG_OBJECT = "object"
 
     override fun getItemCount(): Int {
-        return 9
+        return 4
     }
 
     override fun createFragment(position: Int): Fragment {
-//        val fragment = MainFragment()
-//        fragment.arguments = Bundle().apply {
-//            // The object is just an integer.
-//            putInt(ARG_OBJECT, position + 1)
-//        }
-//        return fragment
-        when (position) {
-            0 -> return MainFragment()
-            1 -> return ScheduleFragment()
-            2 -> return MainFragment()
+        val fragment = ScheduleFragment()
+        fragment.arguments = Bundle().apply {
+            // The object is just an integer.
+            putInt(ARG_OBJECT, position + 1)
         }
-        return ScheduleFragment()
+        return fragment
+//        when (position) {
+//            0 -> return MainFragment()
+//            1 -> return ScheduleFragment()
+//            2 -> return MainFragment()
+//        }
+//        return ScheduleFragment()
     }
 }

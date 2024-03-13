@@ -13,21 +13,21 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
 
     override fun init(view: View) {
         binding.apply {
-            imageLogo.apply {
+            layoutHeader.imageLogo.apply {
                 load("https://media.api-sports.io/football/leagues/39.png")
             }
 
             ArrayAdapter.createFromResource(
                 root.context,
                 R.array.season_array,
-                android.R.layout.simple_spinner_item
+                R.layout.item_spinner
             ).also {
                 it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                spinnerSeasons.adapter = it
+                layoutHeader.spinnerSeasons.adapter = it
             }
 //
-//            pager.adapter = Viewpager2Adapter(this@MainFragment)
-            TabLayoutMediator(tabLayout, pager) { tab, position ->
+            pager.adapter = Viewpager2Adapter(this@MainFragment)
+            TabLayoutMediator(layoutHeader.tabLayout, pager) { tab, position ->
                 tab.text = "POSITION ${(position + 1)}"
             }.attach()
         }

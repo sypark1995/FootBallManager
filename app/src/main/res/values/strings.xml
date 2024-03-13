@@ -10,4 +10,7 @@
     <string name="league_bundesliga">분데스리가</string>
     <string name="league_ligue1">리그 1</string>
     <string name="league_serie_a">세리에 A</string>
+
+    <string name="epl_logo">Premier League</string>
+    <string name="country">England</string>
 </resources>
