@@ -9,7 +9,7 @@
         <include
             android:id="@+id/layout_header"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="190dp"
             layout="@layout/include_header" />
 
         <androidx.viewpager2.widget.ViewPager2
