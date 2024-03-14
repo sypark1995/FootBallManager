@@ -1,13 +1,16 @@
 package com.football.manager.view.fragments
 
+import android.graphics.Color
 import android.view.View
-import android.view.ViewParent
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import coil.load
 import com.football.manager.R
 import com.football.manager.databinding.FragmentMainBinding
 import com.football.manager.view.base.BaseFragment
 import com.google.android.material.tabs.TabLayoutMediator
+
 
 class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
 
@@ -20,7 +23,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
             ArrayAdapter.createFromResource(
                 root.context,
                 R.array.season_array,
-                R.layout.item_spinner
+                android.R.layout.simple_spinner_item
             ).also {
                 it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 layoutHeader.spinnerSeasons.adapter = it
@@ -30,6 +33,23 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
             TabLayoutMediator(layoutHeader.tabLayout, pager) { tab, position ->
                 tab.text = "POSITION ${(position + 1)}"
             }.attach()
+
+            layoutHeader.spinnerSeasons.apply {
+                onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(
+                        parent: AdapterView<*>?,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) {
+                        (view as TextView).setTextColor(Color.WHITE)
+                    }
+
+                    override fun onNothingSelected(parent: AdapterView<*>?) {
+                    }
+
+                }
+            }
         }
     }
 
