@@ -13,4 +13,12 @@
 
     <string name="epl_logo">Premier League</string>
     <string name="country">England</string>
+
+    <string name="category_ranking">순위</string>
+    <string name="category_match">경기</string>
+    <string name="category_news">뉴스</string>
+    <string name="category_player_stats">플레이어 통계</string>
+    <string name="category_team_stats">팀 통계</string>
+    <string name="category_week_team">이번 주의 팀</string>
+    <string name="category_seasons">시즌</string>
 </resources>

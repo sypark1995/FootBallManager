@@ -17,9 +17,9 @@
 
     <fragment
         android:id="@+id/scheduleFragment"
-        android:name="com.football.manager.view.fragments.ScheduleFragment"
-        android:label="ScheduleFragment"
-        tools:layout="@layout/fragment_schedule">
+        android:name="com.football.manager.view.fragments.RankingFragment"
+        android:label="RankingFragment"
+        tools:layout="@layout/fragment_ranking">
         <action
             android:id="@+id/action_scheduleFragment_to_mainFragment"
             app:destination="@id/mainFragment" />

@@ -1,31 +1,23 @@
 package com.football.manager.view.fragments
 
-import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.football.manager.view.util.MainCategory
 
 class Viewpager2Adapter(fragment : Fragment) :
     FragmentStateAdapter(fragment) {
-    private val ARG_OBJECT = "object"
+
 
     override fun getItemCount(): Int {
-        return 4
+        return MainCategory.entries.size
     }
 
     override fun createFragment(position: Int): Fragment {
-        val fragment = ScheduleFragment()
-        fragment.arguments = Bundle().apply {
-            // The object is just an integer.
-            putInt(ARG_OBJECT, position + 1)
+        when (position) {
+            0 -> return RankingFragment()
+            1 -> return MatchFragment()
+            2 -> return RankingFragment()
         }
-        return fragment
-//        when (position) {
-//            0 -> return MainFragment()
-//            1 -> return ScheduleFragment()
-//            2 -> return MainFragment()
-//        }
-//        return ScheduleFragment()
+        return RankingFragment()
     }
 }

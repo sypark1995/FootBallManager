@@ -9,6 +9,7 @@ import coil.load
 import com.football.manager.R
 import com.football.manager.databinding.FragmentMainBinding
 import com.football.manager.view.base.BaseFragment
+import com.football.manager.view.util.MainCategory
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -31,7 +32,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
 //
             pager.adapter = Viewpager2Adapter(this@MainFragment)
             TabLayoutMediator(layoutHeader.tabLayout, pager) { tab, position ->
-                tab.text = "POSITION ${(position + 1)}"
+                tab.setText(MainCategory.entries[position].res)
             }.attach()
 
             layoutHeader.spinnerSeasons.apply {

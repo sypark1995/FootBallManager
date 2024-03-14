@@ -1,18 +1,13 @@
 package com.football.manager.view.activity
 
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import coil.load
 import com.football.manager.view.base.BaseActivity
 import com.football.manager.R
 import com.football.manager.databinding.ActivityMainBinding
 import com.football.manager.view.fragments.MainFragment
-import com.football.manager.view.fragments.ScheduleFragment
-import com.football.manager.view.fragments.Viewpager2Adapter
-import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
