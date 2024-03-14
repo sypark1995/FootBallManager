@@ -1,15 +1,12 @@
 package com.football.manager.view.fragments
 
 import android.view.View
-import android.widget.ArrayAdapter
 import com.football.manager.R
-import com.football.manager.databinding.FragmentScheduleBinding
+import com.football.manager.databinding.FragmentRankingBinding
 import com.football.manager.view.base.BaseFragment
 import com.football.manager.view.recyclerview.LeagueAdapter
-import com.football.manager.view.util.League
-import timber.log.Timber
 
-class ScheduleFragment : BaseFragment<FragmentScheduleBinding>(R.layout.fragment_schedule) {
+class RankingFragment : BaseFragment<FragmentRankingBinding>(R.layout.fragment_ranking) {
 
     private lateinit var adapterLeague: LeagueAdapter
 
