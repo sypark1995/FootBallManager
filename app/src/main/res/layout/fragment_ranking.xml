@@ -6,36 +6,49 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guild_line_2"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="schedule"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:weightSum="1"
+            app:layout_constraintEnd_toEndOf="@id/guild_line_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <!--            <Spinner-->
-        <!--                android:id="@+id/spinner_seasons"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="30dp"-->
-        <!--                app:layout_constraintEnd_toEndOf="parent"-->
-        <!--                app:layout_constraintStart_toStartOf="parent"-->
-        <!--                app:layout_constraintTop_toTopOf="@id/layout_title" />-->
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <!--            <androidx.recyclerview.widget.RecyclerView-->
-        <!--                android:id="@+id/recyclerview_league"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="40dp"-->
-        <!--                android:layout_marginTop="10dp"-->
-        <!--                android:orientation="horizontal"-->
-        <!--                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-        <!--                app:layout_constraintTop_toBottomOf="@id/spinner_seasons"-->
-        <!--                tools:listitem="@layout/item_league" />-->
-        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:button="@null"
+                    android:layout_weight="0.33" />
 
-        <!--        <include-->
-        <!--            android:id="@+id/layout_bottom"-->
-        <!--            layout="@layout/include_nav_bottom" />-->
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:button="@null"
+                    android:layout_weight="0.33" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:button="@null"
+                    android:layout_weight="0.33" />
+            </RadioGroup>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 
