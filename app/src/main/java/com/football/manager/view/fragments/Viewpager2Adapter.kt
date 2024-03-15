@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.football.manager.view.util.MainCategory
 
-class Viewpager2Adapter(fragment : Fragment) :
+class Viewpager2Adapter(fragment: Fragment) :
     FragmentStateAdapter(fragment) {
 
 
@@ -13,11 +13,6 @@ class Viewpager2Adapter(fragment : Fragment) :
     }
 
     override fun createFragment(position: Int): Fragment {
-        when (position) {
-            0 -> return RankingFragment()
-            1 -> return MatchFragment()
-            2 -> return RankingFragment()
-        }
-        return RankingFragment()
+        return MainCategory.entries[position].fragment
     }
 }

@@ -18,7 +18,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
     override fun init(view: View) {
         binding.apply {
             layoutHeader.imageLogo.apply {
-                load("https://media.api-sports.io/football/leagues/39.png")
+                load("https://media.api-sports.io/football/leagues/39.png") {
+//                    placeholder()   //대체이미지
+//                    error() //Load fail 시 이미지
+                }
             }
 
             ArrayAdapter.createFromResource(
