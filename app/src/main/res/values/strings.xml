@@ -21,4 +21,7 @@
     <string name="category_team_stats">팀 통계</string>
     <string name="category_week_team">이번 주의 팀</string>
     <string name="category_seasons">시즌</string>
+
+    <string name="radio_ranking">순위</string>
+    <string name="radio_record">최근 5경기</string>
 </resources>

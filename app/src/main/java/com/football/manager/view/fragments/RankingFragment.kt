@@ -5,6 +5,7 @@ import com.football.manager.R
 import com.football.manager.databinding.FragmentRankingBinding
 import com.football.manager.view.base.BaseFragment
 import com.football.manager.view.recyclerview.LeagueAdapter
+import timber.log.Timber
 
 class RankingFragment : BaseFragment<FragmentRankingBinding>(R.layout.fragment_ranking) {
 
@@ -22,6 +23,20 @@ class RankingFragment : BaseFragment<FragmentRankingBinding>(R.layout.fragment_r
 //                adapterLeague.submitList(League.entries)
 //
 //            }
+            toggleGroup.addOnButtonCheckedListener { group, checkedId, isChecked ->
+                if (isChecked) {
+                    when (checkedId) {
+                        // todo_sypark
+                        R.id.button_ranking -> {
+                            Timber.e("ranking")
+                        }
+
+                        R.id.button_record -> {
+                            Timber.e("record")
+                        }
+                    }
+                }
+            }
         }
     }
 
