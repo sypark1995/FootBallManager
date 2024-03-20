@@ -37,6 +37,16 @@ class RankingFragment : BaseFragment<FragmentRankingBinding>(R.layout.fragment_r
                     }
                 }
             }
+
+            layoutBottom.apply {
+                includeChampions.imageState.setBackgroundResource(R.drawable.circle_green)
+                includeEuropa.imageState.setBackgroundResource(R.drawable.circle_red)
+                includeDemotion.imageState.setBackgroundResource(R.drawable.circle_blue)
+
+                includeChampions.textState.setText(R.string.champions)
+                includeEuropa.textState.setText(R.string.europa)
+                includeDemotion.textState.setText(R.string.demotion)
+            }
         }
     }
 

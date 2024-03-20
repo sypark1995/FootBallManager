@@ -24,4 +24,9 @@
 
     <string name="radio_ranking">순위</string>
     <string name="radio_record">최근 5경기</string>
+
+    <string name="champions">챔피언스 리그</string>
+    <string name="europa">유로파</string>
+    <string name="demotion">강등</string>
+
 </resources>
