@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "FootBallManager"
 include(":app")
- 
+include(":core-network")
+include(":core-data")

@@ -35,6 +35,7 @@ android {
     buildFeatures {
         dataBinding = true
         viewBinding = true
+        buildConfig = true
     }
 
     kotlinOptions {
@@ -43,6 +44,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core-network"))
     implementation(Libraries.androidx_core)
     implementation(Libraries.androidx_appcompat)
     implementation(Libraries.material)

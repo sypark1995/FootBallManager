@@ -2,7 +2,6 @@ object Versions {
     const val kotlin = "1.7.10"
     const val agp = "7.2.1"
     const val ksp = "1.7.10-1.0.6"
-    const val hilt = "2.42"
     const val jvmTarget = "1.8"
     const val material = "1.11.0"
     const val sceneView = "0.9.0"
@@ -25,6 +24,11 @@ object Versions {
     const val jackson = "2.9.7"
     const val nav = "2.7.7"
     const val coil = "2.2.2"
+    const val hiltAndroid = "2.44"
+    const val retrofit = "2.9.0"
+    const val okHttp = "4.12.0"
+    const val moshi = "1.15.0"
+    const val coroutine = "1.6.4"
 }
 
 object Libraries {
@@ -34,12 +38,10 @@ object Libraries {
     const val kotlin_serialization = "org.jetbrains.kotlin:kotlin-serialization:${Versions.kotlin}"
     const val navigation_safeargsPlugin =
         "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.androidxNavigation}"
-    const val hilt_plugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
+
     const val material = "com.google.android.material:material:${Versions.material}"
     const val gson = "com.google.code.gson"
     const val sceneview = "io.github.sceneview:arsceneview:${Versions.sceneView}"
-    const val hilt_android = "com.google.dagger:hilt-android:${Versions.hilt}"
-    const val hilt_compiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
     const val androidx_core = "androidx.core:core-ktx:${Versions.androidxCore}"
     const val androidx_appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
 
@@ -61,4 +63,20 @@ object Libraries {
 
     const val coil = "io.coil-kt:coil:${Versions.coil}"
 
+    const val hilt_android = "com.google.dagger:hilt-android:${Versions.hiltAndroid}"
+    const val hilt_compiler = "com.google.dagger:hilt-android-compiler:${Versions.hiltAndroid}"
+    const val hilt_plugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltAndroid}"
+
+    const val hilt_inject = "javax.inject:javax.inject:1"
+
+    const val retrofit = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val retrofit_moshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+
+    const val okhttp_interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
+    const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
+    const val moshi_codegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
+
+    const val coroutine_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}"
+    const val coroutine_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}"
 }
+
