@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -13,7 +15,9 @@ android {
         minSdk = Configuration.minSdk
         targetSdk = Configuration.targetSdk
         versionCode = Configuration.versionCode
-        versionName = "1.0"
+        versionName = Configuration.versionName
+
+        buildConfigField("String", "API_KEY", getApiKey("API_KEY"))
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -58,4 +62,8 @@ dependencies {
     implementation(Libraries.hilt_plugin)
     implementation(Libraries.hilt_android)
     implementation(Libraries.hilt_inject)
+}
+
+fun getApiKey(propertyKey: String): String {
+    return gradleLocalProperties(rootDir).getProperty(propertyKey)
 }
