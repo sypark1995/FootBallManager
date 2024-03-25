@@ -1,6 +1,5 @@
 package com.football.manager.core_network.di
 
-import com.football.manager.core_network.adapter.ResultCallAdapterFactory
 import com.football.manager.core_network.interceptor.HttpRequestInterceptor
 import dagger.Module
 import dagger.Provides
@@ -27,7 +26,6 @@ object NetworkModule {
             .client(okHttpClient)
             .baseUrl("")
             .addConverterFactory(MoshiConverterFactory.create())
-            .addCallAdapterFactory(ResultCallAdapterFactory())
             .build()
     }
 
