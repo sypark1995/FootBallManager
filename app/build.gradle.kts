@@ -45,6 +45,7 @@ android {
 
 dependencies {
     implementation(project(":core-network"))
+    implementation(project(":core-data"))
     implementation(Libraries.androidx_core)
     implementation(Libraries.androidx_appcompat)
     implementation(Libraries.material)
@@ -54,4 +55,7 @@ dependencies {
     implementation(Libraries.navigation_ui_ktx)
     implementation(Libraries.navigation_dynamic_feature)
     implementation(Libraries.coil)
+    implementation(Libraries.hilt_plugin)
+    implementation(Libraries.hilt_android)
+    implementation(Libraries.hilt_inject)
 }
