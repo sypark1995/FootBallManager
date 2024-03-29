@@ -4,6 +4,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -16,8 +17,6 @@ android {
         targetSdk = Configuration.targetSdk
         versionCode = Configuration.versionCode
         versionName = Configuration.versionName
-
-        buildConfigField("String", "API_KEY", getApiKey("API_KEY"))
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -61,9 +60,9 @@ dependencies {
     implementation(Libraries.coil)
     implementation(Libraries.hilt_plugin)
     implementation(Libraries.hilt_android)
+    kapt(Libraries.hilt_compiler)
     implementation(Libraries.hilt_inject)
 }
-
-fun getApiKey(propertyKey: String): String {
-    return gradleLocalProperties(rootDir).getProperty(propertyKey)
+kapt {
+    correctErrorTypes = true
 }
