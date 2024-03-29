@@ -1,6 +1,10 @@
 package com.football.manager.core_network.di
 
 import com.football.manager.core_network.interceptor.HttpRequestInterceptor
+import com.football.manager.core_network.service.RetrofitClient
+import com.football.manager.core_network.service.RetrofitService
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,6 +17,8 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+
+
     @Provides
     @Singleton
     fun provideOKHttpClient(): OkHttpClient {
@@ -24,21 +30,26 @@ object NetworkModule {
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("")
-            .addConverterFactory(MoshiConverterFactory.create())
-            .build()
+            .baseUrl("https://v3.football.api-sports.io/")
+            .addConverterFactory(
+                MoshiConverterFactory.create(
+                    Moshi.Builder()
+                        .add(KotlinJsonAdapterFactory())
+                        .build()
+                )
+            ).build()
     }
 
-//    @Provides
-//    @Singleton
-//    fun provideService(retrofit: Retrofit): RetrofitService {
-//        return retrofit.create(RetrofitService::class.java)
-//    }
-//
-//    @Provides
-//    @Singleton
-//    fun provideClient(retrofitService: RetrofitService): RetrofitClient {
-//        return RetrofitClient(retrofitService)
-//    }
+    @Provides
+    @Singleton
+    fun provideService(retrofit: Retrofit): RetrofitService {
+        return retrofit.create(RetrofitService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideClient(retrofitService: RetrofitService): RetrofitClient {
+        return RetrofitClient(retrofitService)
+    }
 
 }

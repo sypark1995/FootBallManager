@@ -2,15 +2,10 @@ package com.football.manager.view.recyclerview
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.databinding.BindingAdapter
-import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.football.manager.R
 import com.football.manager.databinding.ItemLeagueBinding
 import com.football.manager.view.util.League
 import timber.log.Timber
@@ -32,7 +27,7 @@ class LeagueAdapter(private val onItemClickListener: (Int) -> Unit) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Timber.e("selectedPosition $selectedPosition")
-        holder.bind(currentList[position], position == selectedPosition, onItemClickListener)
+        holder.bind(currentList[position], onItemClickListener)
     }
 }
 
@@ -56,7 +51,6 @@ class ViewHolder(val binding: ItemLeagueBinding) : RecyclerView.ViewHolder(bindi
     @SuppressLint("ResourceAsColor")
     fun bind(
         item: League,
-        isSelected: Boolean,
         onItemClickListener: (Int) -> Unit
     ) {
         binding.apply {

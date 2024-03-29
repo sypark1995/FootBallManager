@@ -48,6 +48,9 @@ dependencies {
     implementation(Libraries.okhttp_interceptor)
     implementation(Libraries.timber)
     kapt(Libraries.hilt_compiler)
+
+    implementation(Libraries.moshi)
+    kapt(Libraries.moshi_codegen)
 }
 
 fun getApiKey(propertyKey: String): String {

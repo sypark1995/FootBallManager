@@ -1,10 +1,11 @@
 package com.football.manager.core_network.model
 
-import com.football.manager.core_network.model.detail.League
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
-data class StandingResponse(
+data class Parameters(
     @field:Json(name = "league")
-    val league: League
+    val league: String,
+    @field:Json(name = "season")
+    val season: String,
 )

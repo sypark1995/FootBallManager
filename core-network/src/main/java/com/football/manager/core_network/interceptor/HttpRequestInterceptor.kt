@@ -1,5 +1,6 @@
 package com.football.manager.core_network.interceptor
 
+import com.football.manager.core_network.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Response
 import timber.log.Timber
@@ -9,8 +10,8 @@ internal class HttpRequestInterceptor : Interceptor {
         val originalRequest = chain.request()
         originalRequest.run {
             newBuilder().apply {
-                header("", "")
-                header("", "")
+                header("x-rapidapi-key", BuildConfig.BUILD_TYPE)
+                header("x-rapidapi-host", "v3.football.api-sports.io")
                 url(originalRequest.url).build()
             }
         }

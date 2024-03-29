@@ -19,7 +19,6 @@ class RankingViewModel @Inject constructor(
             repository.getStandings(league = league, season = season).collectLatest {
                 when (it) {
                     is ApiResult.Success -> {
-
                     }
 
                     is ApiResult.Loading -> {

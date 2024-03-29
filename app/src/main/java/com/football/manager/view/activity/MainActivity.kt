@@ -1,5 +1,6 @@
 package com.football.manager.view.activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -8,7 +9,9 @@ import com.football.manager.view.base.BaseActivity
 import com.football.manager.R
 import com.football.manager.databinding.ActivityMainBinding
 import com.football.manager.view.fragments.MainFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     private lateinit var navController: NavController
@@ -56,6 +59,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 //        }
     }
 
+    @SuppressLint("CommitTransaction")
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.nav_host_main_fragment, fragment)
             .commit()

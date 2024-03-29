@@ -4,7 +4,7 @@ import com.football.manager.core_data.ApiResult
 import com.football.manager.core_data.AppDispatchers
 import com.football.manager.core_data.Dispatcher
 import com.football.manager.core_data.safeFlow
-import com.football.manager.core_network.model.StandingResponse
+import com.football.manager.core_network.model.Base
 import com.football.manager.core_network.service.RetrofitClient
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
@@ -19,7 +19,7 @@ class RankingRepositoryImpl @Inject constructor(
     override fun getStandings(
         league: Int,
         season: Int,
-    ): Flow<ApiResult<StandingResponse>> = safeFlow {
-        retrofitClient.getStandings(league = league, season = season)
+    ) = safeFlow {
+        retrofitClient.getStandings(league = league, season = season).response
     }.flowOn(coroutineDispatcher)
 }
