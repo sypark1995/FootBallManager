@@ -1,5 +1,5 @@
 object Versions {
-    const val kotlin = "1.7.10"
+    const val kotlin = "1.9.22"
     const val agp = "7.2.1"
     const val ksp = "1.7.10-1.0.6"
     const val jvmTarget = "1.8"
@@ -24,7 +24,7 @@ object Versions {
     const val jackson = "2.9.7"
     const val nav = "2.7.7"
     const val coil = "2.2.2"
-    const val hiltAndroid = "2.44"
+    const val hiltAndroid = "2.46"
     const val retrofit = "2.9.0"
     const val okHttp = "4.12.0"
     const val moshi = "1.15.0"
