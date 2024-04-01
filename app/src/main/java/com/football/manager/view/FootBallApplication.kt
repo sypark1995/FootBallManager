@@ -8,7 +8,5 @@ import timber.log.Timber
 class FootBallApplication: Application() {
     override fun onCreate() {
         super.onCreate()
-
-        Timber.plant(Timber.DebugTree())
     }
 }
