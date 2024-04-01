@@ -29,6 +29,7 @@ object Versions {
     const val okHttp = "4.12.0"
     const val moshi = "1.15.0"
     const val coroutine = "1.6.4"
+    const val gson = "2.10.1"
 }
 
 object Libraries {
@@ -40,7 +41,7 @@ object Libraries {
         "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.androidxNavigation}"
 
     const val material = "com.google.android.material:material:${Versions.material}"
-    const val gson = "com.google.code.gson"
+    const val gson = "com.google.code.gson:${Versions.gson}"
     const val sceneview = "io.github.sceneview:arsceneview:${Versions.sceneView}"
     const val androidx_core = "androidx.core:core-ktx:${Versions.androidxCore}"
     const val androidx_appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
@@ -77,6 +78,7 @@ object Libraries {
     const val moshi_codegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
 
     const val coroutine_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}"
-    const val coroutine_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}"
+    const val coroutine_android =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}"
 }
 

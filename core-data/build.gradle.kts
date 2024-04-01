@@ -47,5 +47,6 @@ dependencies {
     implementation(Libraries.hilt_inject)
     implementation(Libraries.hilt_android)
     kapt(Libraries.hilt_compiler)
+    implementation(Libraries.retrofit)
     implementation(project(":core-network"))
 }
