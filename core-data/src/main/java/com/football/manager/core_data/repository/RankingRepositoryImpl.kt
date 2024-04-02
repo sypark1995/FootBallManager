@@ -6,6 +6,7 @@ import com.football.manager.core_data.Dispatcher
 import com.football.manager.core_data.safeFlow
 import com.football.manager.core_data.toData
 import com.football.manager.core_network.model.BaseResponse
+import com.football.manager.core_network.model.detail.Standing
 import com.football.manager.core_network.service.RetrofitClient
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
@@ -20,7 +21,7 @@ class RankingRepositoryImpl @Inject constructor(
     override fun getStandings(
         league: Int,
         season: Int,
-    ): Flow<ApiResult<BaseResponse>> = safeFlow {
-        retrofitClient.getStandings(league = league, season = season).toData<BaseResponse>()
+    ): Flow<ApiResult<List<Standing>>> = safeFlow {
+        retrofitClient.getStandings(league = league, season = season).toData<BaseResponse>().response.first().league.standings.first()  //todo_sypark mapper 변환 예정
     }.flowOn(coroutineDispatcher)
 }
