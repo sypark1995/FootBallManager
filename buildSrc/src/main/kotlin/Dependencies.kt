@@ -2,7 +2,6 @@ object Versions {
     const val kotlin = "1.9.22"
     const val agp = "7.2.1"
     const val ksp = "1.7.10-1.0.6"
-    const val jvmTarget = "1.8"
     const val material = "1.11.0"
     const val sceneView = "0.9.0"
     const val appcompat = "1.6.1"
@@ -12,7 +11,7 @@ object Versions {
     const val androidxNavigation = "2.5.0"
     const val androidxLifecycle = "2.5.0"
     const val androidxWork = "2.7.1"
-    const val androidxRoom = "2.4.3"
+    const val androidxRoom = "2.5.2"
     const val datastore = "1.0.0"
     const val preference = "1.1.0-alpha03"
     const val zxingEmbedded = "3.5.0"
@@ -80,5 +79,9 @@ object Libraries {
     const val coroutine_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}"
     const val coroutine_android =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}"
+
+    const val room = "androidx.room:room-ktx:${Versions.androidxRoom}"
+    const val room_compiler = "androidx.room:room-compiler:${Versions.androidxRoom}"
+
 }
 
