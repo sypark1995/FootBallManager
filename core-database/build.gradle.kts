@@ -1,14 +1,15 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
     namespace = "com.football.manager.core_database"
-    compileSdk = 34
+    compileSdk = Configuration.compileSdk
 
     defaultConfig {
-        minSdk = 26
+        minSdk = Configuration.minSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -24,11 +25,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
 
@@ -40,4 +41,15 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    implementation(Libraries.coroutine_core)
+    implementation(Libraries.coroutine_android)
+    implementation(Libraries.hilt_inject)
+    implementation(Libraries.hilt_android)
+    implementation(Libraries.room)
+    implementation(project(":core-network"))
+
+    kapt(Libraries.hilt_compiler)
+    kapt(Libraries.room_compiler)
+    annotationProcessor(Libraries.room_compiler)
 }
