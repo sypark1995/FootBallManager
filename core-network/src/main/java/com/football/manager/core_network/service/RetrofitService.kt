@@ -10,7 +10,7 @@ interface RetrofitService {
     @GET("standings")
     suspend fun getStandings(
         @Header("x-rapidapi-key") key: String = BuildConfig.API_KEY,
-        @Query("league") league: Int,
-        @Query("season") season: Int,
+        @Query("league") league: Int = 39,
+        @Query("season") season: Long,
     ): JsonElement
 }

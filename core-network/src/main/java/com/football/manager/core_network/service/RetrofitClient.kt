@@ -6,9 +6,9 @@ import javax.inject.Inject
 class RetrofitClient @Inject constructor(
     private val retrofitService: RetrofitService
 ) {
-    suspend fun getStandings(league: Int, season: Int): JsonElement =
+    suspend fun getStandings(season: Long): JsonElement =
         retrofitService.getStandings(
-            league = league,
+            league = 39,
             season = season
         )
 }
