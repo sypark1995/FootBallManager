@@ -49,4 +49,5 @@ dependencies {
     kapt(Libraries.hilt_compiler)
     implementation(Libraries.retrofit)
     implementation(project(":core-network"))
+    implementation(project(":core-database"))
 }
