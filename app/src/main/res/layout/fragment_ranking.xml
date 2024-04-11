@@ -8,6 +8,10 @@
         <variable
             name="vm"
             type="com.football.manager.viewmodel.RankingViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.football.manager.view.recyclerview.RankingAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -190,7 +194,9 @@
                     android:nestedScrollingEnabled="false"
                     android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:adapter="@{adapter}"
                     app:layout_constraintTop_toBottomOf="@id/layout_header"
+                    app:submitList="@{vm.standingList}"
                     tools:listitem="@layout/item_ranking" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout

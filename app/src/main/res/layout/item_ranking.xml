@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="standing"
+            type="com.football.manager.core_network.model.detail.Standing" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -34,6 +40,7 @@
                 android:gravity="center"
                 app:layout_constraintLeft_toRightOf="@id/image_state"
                 app:layout_constraintTop_toTopOf="parent"
+                app:longToString="@{standing.rank}"
                 tools:text="1" />
 
             <ImageView
@@ -52,6 +59,7 @@
                 android:layout_marginStart="5dp"
                 android:gravity="center"
                 android:maxLines="2"
+                android:text="@{standing.team.name}"
                 app:layout_constraintLeft_toRightOf="@id/image_logo"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Tottenham Hotspur" />
@@ -76,6 +84,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    app:longToString="@{standing.all.played}"
                     tools:text="27" />
 
                 <TextView
@@ -85,6 +94,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    app:longToString="@{standing.all.win}"
                     tools:text="20" />
 
                 <TextView
@@ -94,6 +104,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    app:longToString="@{standing.all.draw}"
                     tools:text="4" />
 
                 <TextView
@@ -103,6 +114,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    app:longToString="@{standing.all.lose}"
                     tools:text="4" />
 
                 <TextView
@@ -112,6 +124,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    app:longToString="@{standing.goalsDiff}"
                     tools:text="56" />
 
                 <TextView
@@ -121,6 +134,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    app:longToString="@{standing.all.goals.for_field}"
                     tools:text="70" />
 
                 <TextView
@@ -130,6 +144,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    app:longToString="@{standing.all.goals.against}"
                     tools:text="24" />
 
                 <TextView
@@ -141,6 +156,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:textStyle="bold"
+                    app:longToString="@{standing.points}"
                     tools:text="64" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

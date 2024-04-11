@@ -24,14 +24,14 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
                 }
             }
 
-            ArrayAdapter.createFromResource(
-                root.context,
-                R.array.season_array,
-                android.R.layout.simple_spinner_item
-            ).also {
-                it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                layoutHeader.spinnerSeasons.adapter = it
-            }
+//            ArrayAdapter.createFromResource(
+//                root.context,
+//                R.array.season_array,
+//                android.R.layout.simple_spinner_item
+//            ).also {
+//                it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//                layoutHeader.spinnerSeasons.adapter = it
+//            }
 //
             pager.adapter = Viewpager2Adapter(this@MainFragment)
             TabLayoutMediator(layoutHeader.tabLayout, pager) { tab, position ->

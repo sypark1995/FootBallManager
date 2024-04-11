@@ -8,6 +8,7 @@ import com.football.manager.core_data.repository.RankingRepository
 import com.football.manager.core_data.successOrNull
 import com.football.manager.core_network.model.detail.Standing
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
@@ -16,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RankingViewModel @Inject constructor(
-    private val repository: RankingRepository,
+    repository: RankingRepository,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -24,7 +25,7 @@ class RankingViewModel @Inject constructor(
     /** after when 문 handling을 activity 까지 끌고 가서 핸들링 할 필요가 없음
      * */
     private val uiState: StateFlow<ApiResult<List<Standing>>> =
-        repository.getStandings(11, 11).stateIn(
+        repository.getStandings(2023).stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5_000L),
             initialValue = ApiResult.Loading
