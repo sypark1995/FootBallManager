@@ -16,7 +16,7 @@ data class LeagueEntity(
     val goalsDiff: Long,
     val group: String,
     val form: String,
-    val description: String,
+    val description: String?,
     val allPlayed: Long,
 
     val allWin: Long,
