@@ -11,7 +11,7 @@ object Versions {
     const val androidxNavigation = "2.5.0"
     const val androidxLifecycle = "2.5.0"
     const val androidxWork = "2.7.1"
-    const val androidxRoom = "2.5.2"
+    const val androidxRoom = "2.6.1"
     const val datastore = "1.0.0"
     const val preference = "1.1.0-alpha03"
     const val zxingEmbedded = "3.5.0"
