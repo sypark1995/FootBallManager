@@ -9,14 +9,14 @@ import com.football.manager.core_database.entity.LeagueEntity
 @Dao
 interface TeamDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertLeagueList(leagueList: List<LeagueEntity>)
+    suspend fun insertLeagueList(leagueList: List<LeagueEntity>)
 
     @Query("SELECT * FROM LeagueEntity")
-    fun getAllTeamList(): List<LeagueEntity>
+    suspend fun getAllTeamList(): List<LeagueEntity>
 
     @Query("SELECT * FROM LeagueEntity WHERE season = :season")
-    fun getTeamBySeasonList(season: String): List<LeagueEntity>
+    suspend fun getTeamBySeasonList(season: String): List<LeagueEntity>
 
     @Query("SELECT * FROM LeagueEntity WHERE id = :id AND season = :season")
-    fun getTeamList(id: Int, season: String): List<LeagueEntity>
+    suspend fun getTeamList(id: Int, season: String): List<LeagueEntity>
 }
