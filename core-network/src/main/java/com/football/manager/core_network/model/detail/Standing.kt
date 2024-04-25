@@ -10,7 +10,7 @@ data class Standing(
     val group: String,
     val form: String,
     val status: String,
-    val description: String,
+    val description: String?,
     val all: All,
     val home: Home,
     val away: Away,
