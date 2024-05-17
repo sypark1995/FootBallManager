@@ -1,10 +1,10 @@
 package com.football.manager.view.fragments
 
-import android.view.View
 import androidx.fragment.app.viewModels
 import com.football.manager.R
 import com.football.manager.databinding.FragmentRankingBinding
 import com.football.manager.view.base.BaseFragment
+import com.football.manager.view.recyclerview.RankingAdapter
 import com.football.manager.viewmodel.RankingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -12,13 +12,13 @@ import timber.log.Timber
 @AndroidEntryPoint
 class RankingFragment : BaseFragment<FragmentRankingBinding>(R.layout.fragment_ranking) {
 
-
     private val rankingViewModel: RankingViewModel by viewModels()
 
-    override fun init(view: View) {
+    override fun init() {
+
         binding.apply {
             vm = rankingViewModel
-//            rankingViewModel.getData(39, 2023)
+            adapter = RankingAdapter()
             toggleGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
                 if (isChecked) {
                     when (checkedId) {
@@ -32,16 +32,6 @@ class RankingFragment : BaseFragment<FragmentRankingBinding>(R.layout.fragment_r
                         }
                     }
                 }
-            }
-
-            layoutBottom.apply {
-                includeChampions.imageState.setBackgroundResource(R.drawable.circle_green)
-                includeEuropa.imageState.setBackgroundResource(R.drawable.circle_red)
-                includeDemotion.imageState.setBackgroundResource(R.drawable.circle_blue)
-
-                includeChampions.textState.setText(R.string.champions)
-                includeEuropa.textState.setText(R.string.europa)
-                includeDemotion.textState.setText(R.string.demotion)
             }
         }
     }
