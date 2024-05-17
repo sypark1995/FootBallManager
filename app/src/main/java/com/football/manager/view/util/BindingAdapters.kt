@@ -11,6 +11,7 @@ import coil.load
 import com.football.manager.R
 import com.football.manager.core_data.ApiResult
 import com.football.manager.extension.hide
+import com.football.manager.extension.invisible
 import com.football.manager.extension.show
 import timber.log.Timber
 
@@ -76,7 +77,7 @@ object BindingAdapters {
                 view.setBackgroundResource(R.drawable.round_8_drak_blue)
             }
         } else {
-            view.hide()
+            view.invisible()
         }
     }
 }
