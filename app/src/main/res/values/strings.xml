@@ -26,7 +26,18 @@
     <string name="radio_record">최근 5경기</string>
 
     <string name="champions">챔피언스 리그</string>
-    <string name="europa">유로파</string>
+    <string name="europa">유로파 리그</string>
+    <string name="conference">유로파 컨퍼런스 리그 예선</string>
     <string name="demotion">강등</string>
+
+    <string name="team_name">팀이름</string>
+    <string name="team_game">경기</string>
+    <string name="team_win">승</string>
+    <string name="team_lose">패</string>
+    <string name="team_draw">무</string>
+    <string name="text_diff">+/-</string>
+    <string name="text_get_point">득점</string>
+    <string name="text_lose_point">실점</string>
+    <string name="text_total_point">승점</string>
 
 </resources>
