@@ -18,6 +18,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:show="@{vm.uiState}" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guild_line_2"
             android:layout_width="1dp"
@@ -92,6 +101,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
+                                android:text="@string/team_name"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 tools:text="팀이름" />
@@ -114,6 +124,7 @@
                                     android:layout_marginStart="5dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
+                                    android:text="@string/team_game"
                                     tools:text="경기" />
 
                                 <TextView
@@ -123,6 +134,7 @@
                                     android:layout_marginStart="5dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
+                                    android:text="@string/team_win"
                                     tools:text="승" />
 
                                 <TextView
@@ -132,6 +144,7 @@
                                     android:layout_marginStart="5dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
+                                    android:text="@string/team_draw"
                                     tools:text="무" />
 
                                 <TextView
@@ -141,6 +154,7 @@
                                     android:layout_marginStart="5dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
+                                    android:text="@string/team_lose"
                                     tools:text="패" />
 
                                 <TextView
@@ -150,6 +164,7 @@
                                     android:layout_marginStart="5dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
+                                    android:text="@string/text_diff"
                                     tools:text="+/-" />
 
                                 <TextView
@@ -159,6 +174,7 @@
                                     android:layout_marginStart="5dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
+                                    android:text="@string/text_get_point"
                                     tools:text="득점" />
 
                                 <TextView
@@ -168,6 +184,7 @@
                                     android:layout_marginStart="5dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
+                                    android:text="@string/text_lose_point"
                                     tools:text="실점" />
 
                                 <TextView
@@ -178,6 +195,7 @@
                                     android:layout_marginEnd="5dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
+                                    android:text="@string/text_total_point"
                                     android:textStyle="bold"
                                     tools:text="승점" />
 
@@ -190,11 +208,11 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerview_ranking"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:nestedScrollingEnabled="false"
                     android:overScrollMode="never"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:adapter="@{adapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/layout_header"
                     app:submitList="@{vm.standingList}"
                     tools:listitem="@layout/item_ranking" />
@@ -217,23 +235,37 @@
                         android:id="@+id/include_champions"
                         layout="@layout/include_ranking_bottom"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        app:setIncludeImageView="@{@drawable/circle_green}"
+                        app:setIncludeTextView="@{@string/champions}" />
 
                     <include
                         android:id="@+id/include_europa"
                         layout="@layout/include_ranking_bottom"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/include_champions" />
+                        app:layout_constraintTop_toBottomOf="@id/include_champions"
+                        app:setIncludeImageView="@{@drawable/circle_dark_blue}"
+                        app:setIncludeTextView="@{@string/europa}" />
+
+                    <include
+                        android:id="@+id/include_conference"
+                        layout="@layout/include_ranking_bottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/include_europa"
+                        app:setIncludeImageView="@{@drawable/circle_blue}"
+                        app:setIncludeTextView="@{@string/conference}" />
 
                     <include
                         android:id="@+id/include_demotion"
                         layout="@layout/include_ranking_bottom"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/include_europa" />
+                        app:layout_constraintTop_toBottomOf="@id/include_conference"
+                        app:setIncludeImageView="@{@drawable/circle_red}"
+                        app:setIncludeTextView="@{@string/demotion}" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
