@@ -5,6 +5,10 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <import type="com.football.manager.view.util.ToggleCategory" />
+
         <variable
             name="vm"
             type="com.football.manager.viewmodel.RankingViewModel" />
@@ -48,15 +52,16 @@
 
                 <com.google.android.material.button.MaterialButtonToggleGroup
                     android:id="@+id/toggle_group"
-                    android:layout_width="wrap_content"
+                    android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     app:checkedButton="@id/button_ranking"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:selectionRequired="true"
                     app:singleSelection="true">
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/button_ranking"
                         style="?attr/materialButtonOutlinedStyle"
                         android:layout_width="0dp"
@@ -65,7 +70,7 @@
                         android:text="@string/radio_ranking"
                         android:textSize="12sp" />
 
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/button_record"
                         style="?attr/materialButtonOutlinedStyle"
                         android:layout_width="0dp"
@@ -86,6 +91,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
+                        android:baselineAligned="false"
                         android:orientation="horizontal"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -108,9 +114,11 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/layout_ranking"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="6.5">
+                            android:layout_weight="6.5"
+                            android:visibility="@{vm.selectedButtonId == ToggleCategory.Ranking ? View.VISIBLE : View.GONE}">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -201,6 +209,22 @@
 
                             </LinearLayout>
 
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/layout_recently"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:visibility="@{vm.selectedButtonId == ToggleCategory.Recently ? View.VISIBLE : View.GONE}"
+                            android:layout_weight="6.5">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center|end"
+                                android:paddingStart="0dp"
+                                android:paddingEnd="15dp"
+                                android:text="@string/text_recently" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,12 +7,14 @@ import com.football.manager.core_data.ApiResult
 import com.football.manager.core_data.repository.RankingRepository
 import com.football.manager.core_data.successOrNull
 import com.football.manager.core_network.model.detail.Standing
+import com.football.manager.view.util.ToggleCategory
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,10 +23,16 @@ class RankingViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
+    private val _selectedButtonId = MutableStateFlow(ToggleCategory.Ranking)
+    val selectedButtonId: StateFlow<ToggleCategory> get() = _selectedButtonId
 
-    /** after when 문 handling을 activity 까지 끌고 가서 핸들링 할 필요가 없음
-     * */
-    private val uiState: StateFlow<ApiResult<List<Standing>>> =
+    fun onButtonChecked(toggleCategory: ToggleCategory) {
+        viewModelScope.launch {
+            _selectedButtonId.value = toggleCategory
+        }
+    }
+
+    val uiState: StateFlow<ApiResult<List<Standing>>> =
         repository.getStandings(2023).stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5_000L),
@@ -38,26 +46,4 @@ class RankingViewModel @Inject constructor(
         started = SharingStarted.WhileSubscribed(5_000L),
         initialValue = emptyList()
     )
-
-    /** before
-     * */
-//    private val _uiState = MutableStateFlow<ApiResult<List<Standing>>>(ApiResult.Loading)
-//    val uiState = _uiState.asStateFlow()
-//        fun getData(league: Int, season: Int) {
-//        viewModelScope.launch {
-//            repository.getStandings(league = league, season = season).collectLatest {
-//                when (it) {
-//                    is ApiResult.Success -> if (it.data.isNullOrEmpty()) {
-//                        _uiState.emit(ApiResult.Success(emptyList()))
-//                    } else {
-//                        _uiState.emit(ApiResult.Success(it.data))
-//                    }
-//
-//                    is ApiResult.Loading -> _uiState.emit(ApiResult.Loading)
-//                    is ApiResult.Error -> _uiState.emit(ApiResult.Error(it.e))
-//                }
-//            }
-//        }
-//    }
-
 }

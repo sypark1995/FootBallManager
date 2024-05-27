@@ -1,10 +1,7 @@
 package com.football.manager.view.util
 
 import androidx.annotation.StringRes
-import androidx.fragment.app.Fragment
 import com.football.manager.R
-import com.football.manager.view.fragments.MatchFragment
-import com.football.manager.view.fragments.RankingFragment
 
 enum class League(@StringRes val res: Int, val state: Int, var isSelected: Boolean) {
     EPL(R.string.league_epl, 39, true),
@@ -16,12 +13,18 @@ enum class League(@StringRes val res: Int, val state: Int, var isSelected: Boole
 
 val years = listOf<String>("2000", "2001", "2002", "2003")
 
-enum class MainCategory(@StringRes val res: Int, val fragment: Fragment) {
-    Ranking(R.string.category_ranking, RankingFragment()),
-    Match(R.string.category_match, MatchFragment()),
-    News(R.string.category_news, MatchFragment()),
-    PlayerStats(R.string.category_player_stats, MatchFragment()),
-    TeamStats(R.string.category_team_stats, MatchFragment()),
-    WeekTeam(R.string.category_week_team, MatchFragment()),
-    Seasons(R.string.category_seasons, MatchFragment());
+
+enum class MainCategory(@StringRes val res: Int) {
+    Ranking(R.string.category_ranking),
+    Match(R.string.category_match),
+    News(R.string.category_news),
+    PlayerStats(R.string.category_player_stats),
+    TeamStats(R.string.category_team_stats),
+    WeekTeam(R.string.category_week_team),
+    Seasons(R.string.category_seasons);
+}
+
+enum class ToggleCategory() {
+    Ranking(),
+    Recently()
 }

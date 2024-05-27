@@ -39,5 +39,6 @@
     <string name="text_get_point">득점</string>
     <string name="text_lose_point">실점</string>
     <string name="text_total_point">승점</string>
+    <string name="text_recently">최근 5경기</string>
 
 </resources>
