@@ -1,67 +1,62 @@
 package com.football.manager.view.activity
 
-import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import com.football.manager.view.base.BaseActivity
+import android.view.View
+import android.widget.AdapterView
+import android.widget.TextView
+import coil.load
 import com.football.manager.R
 import com.football.manager.databinding.ActivityMainBinding
-import com.football.manager.view.fragments.MainFragment
+import com.football.manager.view.base.BaseActivity
+import com.football.manager.view.fragments.Viewpager2Adapter
+import com.football.manager.view.util.MainCategory
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
-    private lateinit var navController: NavController
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.lifecycleOwner = this
 
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_main_fragment) as NavHostFragment
-        navController = navHostFragment.navController
-        val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
-
-        navGraph.setStartDestination(R.id.mainFragment)
-
-        navController.graph = navGraph
         binding.apply {
-            if (savedInstanceState == null) {
-                replaceFragment(MainFragment())
+
+            layoutHeader.apply {
+                imageLogo.apply {
+                    load("https://media.api-sports.io/football/leagues/39.png") {
+//                    placeholder()   //대체이미지
+//                    error() //Load fail 시 이미지
+                    }
+
+                    spinnerSeasons.apply {
+                        onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                            override fun onItemSelected(
+                                parent: AdapterView<*>?,
+                                view: View?,
+                                position: Int,
+                                id: Long
+                            ) {
+                                (view as TextView).setTextColor(Color.WHITE)
+                            }
+
+                            override fun onNothingSelected(parent: AdapterView<*>?) {
+                            }
+                        }
+                    }
+                }
+
+                pager.apply {
+                    adapter = Viewpager2Adapter(supportFragmentManager, lifecycle)
+                    offscreenPageLimit = MainCategory.entries.size
+                }
+
+                TabLayoutMediator(layoutHeader.tabLayout, pager) { tab, position ->
+                    tab.setText(MainCategory.entries[position].res)
+                }.attach()
+
+
             }
         }
-
-//        binding.layoutBottom.navBottom.run {
-//            setOnItemSelectedListener {
-//                when (it.itemId) {
-//                    R.id.menu_news -> {
-//                        replaceFragment(MainFragment())
-//                    }
-//
-//                    R.id.menu_schedule -> {
-//                        replaceFragment(ScheduleFragment())
-//                    }
-//
-//                    R.id.menu_ranking -> {
-//                        replaceFragment(MainFragment())
-//                    }
-//
-//                    else -> {
-//                        return@setOnItemSelectedListener false
-//                    }
-//                }
-//
-//                return@setOnItemSelectedListener true
-//            }
-//        }
-    }
-
-    @SuppressLint("CommitTransaction")
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.nav_host_main_fragment, fragment)
-            .commit()
     }
 }
