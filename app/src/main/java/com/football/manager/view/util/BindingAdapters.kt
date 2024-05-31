@@ -26,8 +26,8 @@ object BindingAdapters {
     @JvmStatic
     @BindingAdapter("submitList")
     @Suppress("UNCHECKED_CAST")
-    fun bindSubmitList(view: RecyclerView, list: List<Any>) {
-        (view.adapter as ListAdapter<Any, *>).submitList(list)
+    fun bindSubmitList(view: RecyclerView, list: List<Any>?) {
+        (view.adapter as ListAdapter<Any, *>?)?.submitList(list)
     }
 
     @JvmStatic
@@ -53,19 +53,20 @@ object BindingAdapters {
 
     @JvmStatic
     @BindingAdapter("setIncludeTextView")
-    fun bindingIncludeView(includeView: View, text: String) {
+    fun bindIncludeView(includeView: View, text: String) {
         includeView.findViewById<TextView>(R.id.text_state).text = text
     }
 
+    //
     @JvmStatic
     @BindingAdapter("setIncludeImageView")
-    fun bindingIncludeView(includeView: View, drawable: Drawable) {
+    fun bindIncludeView(includeView: View, drawable: Drawable) {
         includeView.findViewById<ImageView>(R.id.image_state).background = drawable
     }
 
     @JvmStatic
     @BindingAdapter("showRanking")
-    fun bindingRanking(view: View, rank: Long) {
+    fun bindRanking(view: View, rank: Long) {
         if (rank <= 6 || rank >= 18) {
             view.show()
 
