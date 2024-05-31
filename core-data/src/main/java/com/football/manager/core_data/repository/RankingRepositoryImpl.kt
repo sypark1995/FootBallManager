@@ -1,11 +1,10 @@
 package com.football.manager.core_data.repository
 
+import android.annotation.SuppressLint
+import android.util.Log
 import com.football.manager.core_data.ApiResult
 import com.football.manager.core_data.AppDispatchers
 import com.football.manager.core_data.Dispatcher
-import com.football.manager.core_data.extension.getTimeNow
-import com.football.manager.core_data.extension.getYearsNow
-import com.football.manager.core_data.extension.stringToDate
 import com.football.manager.core_data.safeFlow
 import com.football.manager.core_data.toData
 import com.football.manager.core_database.dao.TeamDao
@@ -25,6 +24,7 @@ class RankingRepositoryImpl @Inject constructor(
     @Dispatcher(AppDispatchers.IO) private val coroutineDispatcher: CoroutineDispatcher
 ) : RankingRepository {
 
+    @SuppressLint("SuspiciousIndentation")
     override fun getStandings(
         season: Long,
     ): Flow<ApiResult<List<Standing>>> = safeFlow {
@@ -40,28 +40,29 @@ class RankingRepositoryImpl @Inject constructor(
 
             data.asDomain()
         } else {
-            val yearsDiff = getYearsNow().toInt() - season.toInt()
-            val localTime = data.first().update.stringToDate()
-
-            if (yearsDiff == 0 || yearsDiff == 1) {
-                val diffDays =
-                    ((getTimeNow().stringToDate()!!.time - localTime!!.time) / 24 * 60 * 60)
-
-                if (diffDays >= 1) {
-                    val response = retrofitClient.getStandings(season = season)
-                        .toData<BaseResponse>().response.first().league.standings
-
-                    response.forEach {
-                        teamDao.insertLeagueList(it.asEntity(season))
-                    }
-                    teamDao.getAllTeamList().asDomain()
-                } else {
-                    data.asDomain()
-                }
-            } else {
-                data.asDomain()
-            }
-
+//            val yearsDiff = getYearsNow().toInt() - season.toInt()
+//            val localTime = data.first().update.stringToDate()
+//
+//            if (yearsDiff == 0 || yearsDiff == 1) {
+//                val diffDays =
+//                    ((getTimeNow().stringToDate()!!.time - localTime!!.time) / 24 * 60 * 60 * 1000)
+//
+////                if (diffDays >= 1) {
+////                    val response = retrofitClient.getStandings(season = season)
+////                        .toData<BaseResponse>().response.first().league.standings
+////
+////                    response.forEach {
+////                        teamDao.insertLeagueList(it.asEntity(season))
+////                    }
+////                    teamDao.getAllTeamList().asDomain()
+////                } else {
+//                    data.asDomain()
+////                }
+//            } else {
+//                data.asDomain()
+//            }
+            Log.e("asDomain",data.asDomain().toString())
+            data.asDomain()
         }
     }.flowOn(coroutineDispatcher)
 }

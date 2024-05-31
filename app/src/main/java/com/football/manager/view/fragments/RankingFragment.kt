@@ -5,6 +5,7 @@ import com.football.manager.R
 import com.football.manager.databinding.FragmentRankingBinding
 import com.football.manager.view.base.BaseFragment
 import com.football.manager.view.recyclerview.RankingAdapter
+import com.football.manager.view.recyclerview.RecentlyAdapter
 import com.football.manager.view.util.ToggleCategory
 import com.football.manager.viewmodel.RankingViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,7 +19,8 @@ class RankingFragment : BaseFragment<FragmentRankingBinding>(R.layout.fragment_r
 
         binding.apply {
             vm = rankingViewModel
-            adapter = RankingAdapter()
+            rankingAdapter = RankingAdapter()
+            recentlyAdapter = RecentlyAdapter()
 
             toggleGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
                 if (isChecked) {
