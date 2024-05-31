@@ -19,7 +19,8 @@
         android:layout_height="50dp"
         android:background="@drawable/rectangle_left_right_gray"
         android:orientation="horizontal"
-        android:weightSum="10">
+        android:weightSum="10"
+        android:baselineAligned="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"

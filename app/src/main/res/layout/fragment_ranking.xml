@@ -14,8 +14,12 @@
             type="com.football.manager.viewmodel.RankingViewModel" />
 
         <variable
-            name="adapter"
+            name="rankingAdapter"
             type="com.football.manager.view.recyclerview.RankingAdapter" />
+
+        <variable
+            name="recentlyAdapter"
+            type="com.football.manager.view.recyclerview.RecentlyAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -215,8 +219,8 @@
                             android:id="@+id/layout_recently"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:visibility="@{vm.selectedButtonId == ToggleCategory.Recently ? View.VISIBLE : View.GONE}"
-                            android:layout_weight="6.5">
+                            android:layout_weight="6.5"
+                            android:visibility="@{vm.selectedButtonId == ToggleCategory.Recently ? View.VISIBLE : View.GONE}">
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -233,20 +237,30 @@
                     android:id="@+id/recyclerview_ranking"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:nestedScrollingEnabled="false"
-                    android:overScrollMode="never"
-                    app:adapter="@{adapter}"
+                    android:visibility="@{vm.selectedButtonId == ToggleCategory.Ranking ? View.VISIBLE : View.INVISIBLE}"
+                    app:adapter="@{rankingAdapter}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintTop_toBottomOf="@id/layout_header"
                     app:submitList="@{vm.standingList}"
                     tools:listitem="@layout/item_ranking" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview_recently"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:visibility="@{vm.selectedButtonId == ToggleCategory.Recently ? View.VISIBLE : View.INVISIBLE}"
+                    app:adapter="@{recentlyAdapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/layout_header"
+                    app:submitList="@{vm.standingList}"
+                    tools:listitem="@layout/item_recently" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layout_bottom"
                     android:layout_width="match_parent"
                     android:layout_height="15dp"
                     android:background="@drawable/round_24_bottom_gray"
-                    app:layout_constraintTop_toBottomOf="@id/recyclerview_ranking" />
+                    app:layout_constraintTop_toBottomOf="@id/recyclerview_recently" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layout_include"
