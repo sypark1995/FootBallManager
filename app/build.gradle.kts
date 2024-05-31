@@ -62,6 +62,7 @@ dependencies {
     implementation(Libraries.hilt_android)
     kapt(Libraries.hilt_compiler)
     implementation(Libraries.hilt_inject)
+    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.9.1")
 }
 kapt {
     correctErrorTypes = true
