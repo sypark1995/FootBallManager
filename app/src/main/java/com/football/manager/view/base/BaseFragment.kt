@@ -43,10 +43,10 @@ abstract class BaseFragment<T : ViewDataBinding>(@LayoutRes val layoutResId: Int
 //            onBackPressedCallback
 //        )
 
-        init(view)
+        init()
     }
 
-    protected abstract fun init(view: View)
+    protected abstract fun init()
 
     abstract fun backPressed()
     override fun onDestroyView() {
