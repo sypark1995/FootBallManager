@@ -18,9 +18,9 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/rectangle_left_right_gray"
+        android:baselineAligned="false"
         android:orientation="horizontal"
-        android:weightSum="10"
-        android:baselineAligned="false">
+        android:weightSum="10">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
@@ -85,7 +85,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="4dp"
+                android:layout_margin="6dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -94,10 +94,11 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
+                    android:background="@drawable/round_16_green"
                     android:gravity="center"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:background="@drawable/round_16_green"
+                    app:setForm="@{standing.form.toCharArray()[4]}"
                     tools:text="27" />
 
                 <TextView
@@ -110,18 +111,20 @@
                     android:gravity="center"
                     android:textColor="@color/white"
                     android:textStyle="bold"
+                    app:setForm="@{standing.form.toCharArray()[3]}"
                     tools:text="27" />
 
                 <TextView
                     android:id="@+id/text_third_game"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/round_16_green"
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
+                    android:background="@drawable/round_16_green"
+                    android:gravity="center"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:gravity="center"
+                    app:setForm="@{standing.form.toCharArray()[2]}"
                     tools:text="27" />
 
                 <TextView
@@ -130,22 +133,24 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
+                    android:background="@drawable/round_16_green"
+                    android:gravity="center"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:gravity="center"
-                    android:background="@drawable/round_16_green"
+                    app:setForm="@{standing.form.toCharArray()[1]}"
                     tools:text="27" />
 
                 <TextView
                     android:id="@+id/text_five_game"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/round_16_green"
                     android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:setForm="@{standing.form.toCharArray()[0]}"
                     tools:text="27" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -81,5 +81,27 @@ object BindingAdapters {
             view.invisible()
         }
     }
+
+    @JvmStatic
+    @BindingAdapter(value = ["setForm"], requireAll = true)
+    fun bindingFormListText(textView: TextView, form: Char) {
+        form.let {
+            textView.apply {
+                text = form.toString()
+
+                when (form) {
+                    'W' -> {
+                        setBackgroundResource(R.drawable.round_16_green)
+                    }
+                    'D' -> {
+                        setBackgroundResource(R.drawable.round_16_gray)
+                    }
+                    else -> {
+                        setBackgroundResource(R.drawable.round_16_red)
+                    }
+                }
+            }
+        }
+    }
 }
 

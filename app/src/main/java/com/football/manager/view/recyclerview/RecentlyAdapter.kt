@@ -10,19 +10,20 @@ import com.football.manager.databinding.ItemRecentlyBinding
 import timber.log.Timber
 
 class RecentlyAdapter(
-//    private val whenItemClicked: (Standing, Pair<View, String>) -> Unit
+//    private val whenItemClicked: (Standing) -> Unit
 ) : ListAdapter<Standing, RecentlyAdapter.ViewHolder>(diffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
             ItemRecentlyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding).apply {
             binding.root.setOnClickListener {
-                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
-            }
-            //                whenItemClicked(
-//                    getItem(position),
-//                    Pair(binding.textName, binding.textName.transitionName)
+//                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+//                whenItemClicked(
+//                    getItem(position!!)
 //                )
+                Timber.e("getItem / %s", getItem(position))
+
+            }
         }
     }
 
@@ -36,11 +37,6 @@ class RecentlyAdapter(
         fun binding(item: Standing) {
             binding.apply {
                 standing = item
-                val data = item.form.map {
-                    it
-                }
-
-                Timber.e("form11111 $data")
             }
         }
     }
